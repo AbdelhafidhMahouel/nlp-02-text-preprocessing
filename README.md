@@ -1,8 +1,8 @@
 # nlp-02-text-preprocessing
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
-[![CI](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml)
-[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://denisecase.github.io/nlp-02-text-preprocessing/)
+[![CI](https://github.com/AbdelhafidhMahouel/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/AbdelhafidhMahouel/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml)
+[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://abdelhafidhmahouel.github.io/nlp-02-text-preprocessing/)
 
 [![uv managed](https://img.shields.io/badge/uv-managed-DE5FE9)](https://docs.astral.sh/uv/)
 [![ty type checked](https://img.shields.io/badge/ty-type_checked-2F80ED)](https://docs.astral.sh/ty/)
@@ -13,9 +13,9 @@
 
 ## Project Overview
 
-Author: Denise Case
+Author: Abdelhafidh Mahouel
 
-Date: 2026 October
+Date: 2026 November
 
 Second project in the Web Mining and Applied NLP course.
 
@@ -26,6 +26,11 @@ The goal is to read text data,
 apply common preprocessing techniques,
 compare raw and cleaned text,
 and understand how preprocessing decisions affect analysis.
+
+This custom project adapts Denise Case's example
+by replacing the sample text with at least 10 product reviews
+and adding domain-specific stop words
+to see how the most frequent tokens change.
 
 The project is configured in
 [pyproject.toml](pyproject.toml).
@@ -127,7 +132,7 @@ uv run python -m pytest
 
 ## Project Documentation
 
-The [hosted documentation site](https://denisecase.github.io/nlp-02-text-preprocessing/)
+The [hosted documentation site](https://abdelhafidhmahouel.github.io/nlp-02-text-preprocessing/)
 is published using Zensical and GitHub Pages.
 
 The documentation site is used to present the project report,
@@ -141,8 +146,8 @@ to check project files and publish the docs.
 
 GitHub Actions include:
 
-- [CI: Python and Documentation Checks](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml)
-- [CD: Documentation Deployment](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/deploy-zensical.yml)
+- [CI: Python and Documentation Checks](https://github.com/AbdelhafidhMahouel/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml)
+- [CD: Documentation Deployment](https://github.com/AbdelhafidhMahouel/nlp-02-text-preprocessing/actions/workflows/deploy-zensical.yml)
 
 ## Developer Reference
 
@@ -227,7 +232,7 @@ testing, documentation, and code quality.
 
 ## Links
 
-- [Hosted Documentation](https://denisecase.github.io/nlp-02-text-preprocessing/)
+- [Hosted Documentation](https://abdelhafidhmahouel.github.io/nlp-02-text-preprocessing/)
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
