@@ -28,8 +28,9 @@ compare raw and cleaned text,
 and understand how preprocessing decisions affect analysis.
 
 This custom project adapts Denise Case's example
-by replacing the sample text with at least 10 product reviews
-and adding domain-specific stop words
+to manufacturing continuous improvement.
+It applies preprocessing to 16 production shift notes
+and adjusts the cleaning rules for manufacturing text
 to see how the most frequent tokens change.
 
 The project is configured in
@@ -45,6 +46,14 @@ Each line represents one text record.
 The project combines these records and applies
 several preprocessing operations to prepare
 the text for analysis.
+
+The custom project uses
+[data/production_log.txt](data/production_log.txt),
+which contains 16 production shift notes
+covering downtime, scrap, changeovers, maintenance, and kaizen ideas.
+The entries are sample text written for this project with AI assistance
+and reviewed by the author.
+They do not come from a real plant.
 
 ## Approach
 
@@ -68,6 +77,7 @@ Explore these important project components:
 - [src/nlp/text_preprocessing.py](src/nlp/text_preprocessing.py) - executable Python preprocessing analysis.
 - [notebooks/text_preprocessing.ipynb](notebooks/text_preprocessing.ipynb) - interactive Jupyter notebook example.
 - [notebooks/text_preprocessing_abdel.ipynb](notebooks/text_preprocessing_abdel.ipynb) - technical modification notebook (expanded stop word list).
+- [notebooks/text_preprocessing_manufacturing.ipynb](notebooks/text_preprocessing_manufacturing.ipynb) - custom project notebook (manufacturing production log).
 - [tests/](tests/) - automated tests.
 - [.github/workflows/](.github/workflows/) - automated testing and documentation deployment.
 - [docs/](docs/) - project documentation.
@@ -166,6 +176,81 @@ Every word added to a stop list is a decision.
 Words such as *not* or *very* can carry meaning
 in tasks like sentiment analysis,
 so the right stop word list depends on the goal of the analysis.
+
+## Custom Project: Manufacturing Continuous Improvement
+
+The notebook
+[notebooks/text_preprocessing_manufacturing.ipynb](notebooks/text_preprocessing_manufacturing.ipynb)
+applies the preprocessing process to
+[data/production_log.txt](data/production_log.txt).
+
+### Analytical Question
+
+Which equipment problems and improvement themes appear most often
+in production shift notes,
+and which preprocessing rules keep the manufacturing meaning intact?
+
+### Cleaning Decisions
+
+The example rules remove 27 stop words
+and drop every token with 2 or fewer characters.
+In manufacturing text, that silently removes
+*PM*, *QC*, *5S*, *No*, and every number.
+
+The custom rules make four deliberate decisions:
+
+1. Keep short domain abbreviations: *PM*, *QC*, and *5S*.
+2. Keep negations, such as *No defects* and *PM was not done*.
+3. Remove context and filler words, such as
+   *line*, *shift*, *station*, *week*, *because*, and *after*.
+4. Set numbers aside as measurements instead of counting them as words.
+
+### Results
+
+| Stage | Token Count |
+| --- | --- |
+| Raw tokens | 220 |
+| After punctuation removal | 221 |
+| After example rules | 146 |
+| After manufacturing rules | 130 |
+
+Punctuation removal increased the count by one
+because *Poka-yoke* split into two tokens.
+
+With the example rules, filler and context words
+such as *after*, *because*, and *line*
+were among the most frequent tokens.
+
+With the manufacturing rules, the most frequent tokens
+describe what happened on the floor:
+*changeover*, *stopped*, *dropped*, and *not* (3 each),
+followed by *conveyor*, *belt*, *sensor*, *scrap*,
+*missing*, *parts*, *root*, and *cause* (2 each).
+
+The two-word phrases *root cause* and *conveyor belt*
+each appear twice.
+
+### Interpretation
+
+Changeovers, conveyor jams, sensor faults, and scrap
+are the recurring themes a continuous improvement team
+would investigate first.
+
+Generic cleaning rules removed meaningful domain information.
+Keeping short abbreviations and negations,
+removing context words,
+and handling numbers and phrases separately
+made the frequency results much more useful.
+
+Some information is still lost or ambiguous:
+
+- *pm* appears twice with two meanings:
+  preventive maintenance and the clock time *2 pm*.
+- Numbers such as *45 minutes*, *62% OEE*, and *6% scrap*
+  hold key facts but are not counted as themes.
+
+A next step would be to map abbreviations to full terms
+and extract measurements with their units as structured data.
 
 ## Verification
 

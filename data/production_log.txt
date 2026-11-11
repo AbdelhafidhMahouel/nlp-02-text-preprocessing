@@ -1,0 +1,16 @@
+Line 2 stopped for 45 minutes because the conveyor belt jammed at station 3.
+CNC machine 4 produced 12 parts out of tolerance; tool wear on the cutting insert was the root cause.
+Changeover on the filling line took 90 minutes, well above the 30 minute SMED target.
+Hydraulic press leaked oil again; PM was not done last week.
+Operator found missing labels on 40 boxes because the label printer ran out of ribbon.
+Kaizen idea: add a shadow board so tools are not lost during changeover.
+A sensor fault on the PLC stopped the packaging robot three times this shift.
+Scrap rate rose to 6% after a new resin lot; QC is checking the material.
+The 5S audit score dropped because walkways were blocked by pallets.
+Bearing overheated on the main motor; maintenance replaced it after 2 hours of downtime.
+OEE for line 1 was 62% this week, mostly from minor stops and slow cycle time.
+No defects found after the root cause fix on the welding fixture.
+The changeover checklist was not followed, so the first 20 parts were scrap.
+Conveyor belt tension adjusted; jams dropped from 8 to 2 per shift.
+Poka-yoke sensor added at the assembly station to prevent missing screws.
+Air pressure dropped at 2 pm and three machines stopped; the compressor filter was clogged.
