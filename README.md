@@ -67,6 +67,7 @@ Explore these important project components:
 - [data/](data/) - input text data.
 - [src/nlp/text_preprocessing.py](src/nlp/text_preprocessing.py) - executable Python preprocessing analysis.
 - [notebooks/text_preprocessing.ipynb](notebooks/text_preprocessing.ipynb) - interactive Jupyter notebook example.
+- [notebooks/text_preprocessing_abdel.ipynb](notebooks/text_preprocessing_abdel.ipynb) - technical modification notebook (expanded stop word list).
 - [tests/](tests/) - automated tests.
 - [.github/workflows/](.github/workflows/) - automated testing and documentation deployment.
 - [docs/](docs/) - project documentation.
@@ -121,6 +122,50 @@ and the logging system works.
 ### Example Visualization
 
 ![Word Cloud Example](docs/images/word_cloud_example.png)
+
+## Technical Modification
+
+The notebook
+[notebooks/text_preprocessing_abdel.ipynb](notebooks/text_preprocessing_abdel.ipynb)
+changes one preprocessing decision: the stop word list.
+
+### What Changed
+
+The original example removes 27 stop words.
+The modified version adds 18 more common English function words,
+such as *may*, *many*, *some*, *very*, *can*, and *this*,
+for a total of 45 stop words.
+
+Everything else stays the same
+(data, lowercasing, punctuation removal, and minimum token length)
+so the comparison is fair.
+
+### Results
+
+| Stage | Token Count |
+| --- | --- |
+| Raw tokens | 57 |
+| After punctuation removal | 57 |
+| After stop words (original list) | 46 |
+| After stop words (modified list) | 41 |
+
+The modification removed five additional tokens:
+*into*, *many*, *may*, *some*, and *very*.
+
+The most frequent tokens stayed the same:
+*text* (5), *language* (3), *data* (2), and *words* (2).
+
+### Interpretation
+
+On this small dataset, expanding the stop word list has a modest effect
+because the most frequent tokens are content words.
+On a larger corpus, these function words would appear more often
+and could crowd out meaningful words in the frequency results.
+
+Every word added to a stop list is a decision.
+Words such as *not* or *very* can carry meaning
+in tasks like sentiment analysis,
+so the right stop word list depends on the goal of the analysis.
 
 ## Verification
 
